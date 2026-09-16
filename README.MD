@@ -94,7 +94,7 @@ After processing:
 ![Audio Purifier Pro — realtime preview](screenshots/realtime-preview.png)
 *Figure 4 — Real-time waveform preview with full playback and zoom controls.*
 
-![Audio Purifier Pro — logs and download](screenshots/log-download.png)
+![Audio Purifier Pro — logs and download](screenshots/logs-download.png)
 *Figure 5 — Processing logs and download section for the purified audio file.*
 
 ---
