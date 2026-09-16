@@ -1,0 +1,20 @@
+# Virtuele omgeving
+.venv/
+
+# Cache van jouw applicatie
+.cache/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Streamlit specifieke bestanden
+.streamlit/
+
+# OS specifieke bestanden
+.DS_Store
+Thumbs.db
+
