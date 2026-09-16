@@ -1,6 +1,3 @@
-# =====================================================================
-# app.py — DEEL 1 van 2
-# =====================================================================
 import os
 import glob
 import time
@@ -8,18 +5,18 @@ import numpy as np
 import streamlit as st
 
 from styles import CUSTOM_CSS, PRESETS
-from core import WAVStemPurifier, CACHE_DIR
+from core import WAVPurifier, CACHE_DIR
 
 st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
 
-st.title('🎛️ WAV Stem Purifier Pro')
+st.title('🎛️ Audio Purifier Pro')
 st.subheader('Dynamic Spectral Gating & Waveform Analysis')
 
-uf = st.file_uploader('Upload a WAV stem...', type=['wav'])
+uf = st.file_uploader('Upload a WAV...', type=['wav'])
 
 if uf is not None:
     if 'purifier' not in st.session_state or st.session_state.current_file != uf.name:
-        st.session_state.purifier = WAVStemPurifier(uf.read(), uf.name)
+        st.session_state.purifier = WAVPurifier(uf.read(), uf.name)
         st.session_state.current_file = uf.name
         st.session_state.chunks, st.session_state.ai_phase, st.session_state.meta_details = st.session_state.purifier.scan()
         if 'clean_bytes' in st.session_state:
@@ -65,8 +62,7 @@ if uf is not None:
         
     shimmer_amount = st.slider('ApeMachine Anti-Shimmer Intensity', 0.0, 1.0, value=float(pv['shimmer']), step=0.05)
 # =====================================================================
-# app.py — DEEL 2 van 2 (Plak dit direct onder Deel 1)
-# =====================================================================
+
     if st.button('PROCESS AND AUDITION CHANGES'):
         pb = st.progress(0)
         st_txt = st.empty()
@@ -123,7 +119,7 @@ if 'clean_bytes' in st.session_state and st.session_state.clean_bytes:
     base_name, _ = os.path.splitext(st.session_state.current_file)
     st.markdown('### 💾 Final Master Export')
     st.download_button(
-        label='Download Purified Lossless WAV Stem', 
+        label='Download Purified Lossless WAV', 
         data=st.session_state.clean_bytes, 
         file_name=f'purified_{base_name}.wav', 
         mime='audio/wav',

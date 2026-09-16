@@ -1,6 +1,3 @@
-# =====================================================================
-# core.py — DEEL 1 van 2
-# =====================================================================
 import os
 import time
 import numpy as np
@@ -13,7 +10,7 @@ CACHE_DIR = '.cache'
 if not os.path.exists(CACHE_DIR):
     os.makedirs(CACHE_DIR)
 
-class WAVStemPurifier:
+class WAVPurifier:
     def __init__(self, ib, fn):
         self.input_bytes = bytearray(ib)
         self.filename = fn
@@ -131,8 +128,6 @@ class WAVStemPurifier:
                     self.log(f'Neutralizing ID3 Sub-tag: {sub_tag.decode()} -> JUNK')
                     self.input_bytes[idx:idx+4] = b'JUNK'
                     idx += 4
-# =====================================================================
-# core.py — DEEL 2 van 2 (Plak dit direct onder Deel 1)
 # =====================================================================
     def purify_with_gate(self, db_threshold, s, w, l, shimmer_amount, status_callback=None):
         try:
