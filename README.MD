@@ -9,7 +9,7 @@
 Audio Purifier Pro is a powerful Streamlit application for **cleaning audio stems and removing intrusive AI-tracking or distribution metadata** while preserving crucial musical properties—BPM and Key data remain completely intact.
 
 ![Audio Purifier Pro — intro screen](screenshots/intro.png)
-*Figure 1 — The intro screen you see when you first launch Audio Purifier Pro, ready to upload your audio stems.*
+*Figure 1 — The intro screen you see when you first launch Audio Purifier Pro, ready to upload your audio wav file.*
 
 ---
 
@@ -47,7 +47,6 @@ Audio Purifier Pro is a powerful Streamlit application for **cleaning audio stem
 ### Download & Export
 - **Lossless WAV Export** — all processed audio exported as tagged WAV files
 - **Metadata Preservation** — ACID chunk and BPM/Key tags embedded in output
-- **Batch Processing** — process multiple stems in sequence with unified logging
 
 ---
 
@@ -65,10 +64,10 @@ When you upload an audio stem:
 
 ### 2. Configure Purification Settings
 Before processing, you can:
-- **Select Tags to Remove** — choose which ID3 tags to strip (Title, Artist, Comment, or all)
+- **Select pre-configured settings** — choose Full Track or a dedicated stem
 - **Choose DSP Effects** — enable/disable analog warmth, stereo expansion, anti-shimmer filtering
 - **Set Effect Parameters** — adjust saturation amount, stereo width, filter strength
-- **Preview Effects** — audition your settings on the waveform
+
 
 ### 3. Process & Purify
 When you click **"Purify Audio"**:
@@ -113,7 +112,6 @@ After processing:
 - **API Endpoints (via Streamlit callbacks):**
   - File upload handling
   - Metadata scanning and analysis
-  - Selective tag removal (ID3/RIFF surgery)
   - DSP effect chain processing
   - WAV export with metadata retention
   - Download handling
